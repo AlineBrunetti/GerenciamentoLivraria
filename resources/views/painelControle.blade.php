@@ -18,6 +18,13 @@
                         <p class="mt-2 text-gray-500">Gerenciar relação de permissões</p>
                     </a>
                 @endif
+                @if(app(\App\Services\PermissaoService::class)->podeAcessarRota(auth()->user(), 'users.index'))
+                    {{-- Usuários --}}
+                    <a href="{{ route('users.index') }}" class="block p-6 bg-white rounded-lg shadow hover:bg-gray-100 transition">
+                        <h3 class="text-lg font-semibold text-gray-700">Usuários</h3>
+                        <p class="mt-2 text-gray-500">Gerenciar usuários do sistema</p>
+                    </a>
+                @endif
                 @if(app(\App\Services\PermissaoService::class)->podeAcessarRota(auth()->user(), 'cargos.index'))
                     {{-- Cargos --}}
                     <a href="{{ route('cargos.index') }}" class="block p-6 bg-white rounded-lg shadow hover:bg-gray-100 transition">
@@ -32,13 +39,6 @@
                         <p class="mt-2 text-gray-500">Gerenciar setores</p>
                     </a>
                 @endif
-                @if(app(\App\Services\PermissaoService::class)->podeAcessarRota(auth()->user(), 'users.index'))
-                    {{-- Usuários --}}
-                    <a href="{{ route('users.index') }}" class="block p-6 bg-white rounded-lg shadow hover:bg-gray-100 transition">
-                        <h3 class="text-lg font-semibold text-gray-700">Usuários</h3>
-                        <p class="mt-2 text-gray-500">Gerenciar usuários do sistema</p>
-                    </a>
-                @endif
                 @if(app(\App\Services\PermissaoService::class)->podeAcessarRota(auth()->user(), 'movimentacoes.index'))
                     {{-- Movimentações --}}
                     <a href="{{ route('movimentacoes.index') }}" class="block p-6 bg-white rounded-lg shadow hover:bg-gray-100 transition">
@@ -51,6 +51,13 @@
                     <a href="{{ route('estoques.index') }}" class="block p-6 bg-white rounded-lg shadow hover:bg-gray-100 transition">
                         <h3 class="text-lg font-semibold text-gray-700">Estoque</h3>
                         <p class="mt-2 text-gray-500">Consultar estoque </p>
+                    </a>
+                @endif
+                @if(app(\App\Services\PermissaoService::class)->podeAcessarRota(auth()->user(), 'fornecedores.index'))
+                    {{-- Fornecedores --}}
+                    <a href="{{ route('fornecedores.index') }}" class="block p-6 bg-white rounded-lg shadow hover:bg-gray-100 transition">
+                        <h3 class="text-lg font-semibold text-gray-700">Fornecedores</h3>
+                        <p class="mt-2 text-gray-500">Gerenciar Fornecedores</p>
                     </a>
                 @endif
                 @if(app(\App\Services\PermissaoService::class)->podeAcessarRota(auth()->user(), 'livros.index'))
